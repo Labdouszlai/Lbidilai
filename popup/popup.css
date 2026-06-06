@@ -1,0 +1,67 @@
+:root {
+  --bg: #fff;
+  --txt: #1a1a1a;
+  --tx2: #666;
+  --swbg: #ccc;
+  --swon: #4CAF50;
+  --card: #f9f9f9;
+}
+body.dark {
+  --bg: #1a1a1a;
+  --txt: #e0e0e0;
+  --tx2: #999;
+  --swbg: #555;
+  --swon: #66bb6a;
+  --card: #252525;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 270px;
+  font-family: -apple-system, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--txt);
+  font-size: 14px;
+}
+.box { padding: 14px; }
+header { margin-bottom: 14px; }
+.top { display: flex; align-items: center; gap: 8px; }
+.ico {
+  width: 34px; height: 34px;
+  background: linear-gradient(135deg, #0a66c2, #6a0dad);
+  color: #fff; border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 15px;
+}
+h1 { font-size: 18px; font-weight: 700; }
+.sub { font-size: 11px; color: var(--tx2); margin-top: 2px; padding-left: 42px; }
+.opts {
+  display: flex; flex-direction: column; gap: 12px;
+  margin-bottom: 14px; padding: 10px;
+  background: var(--card); border-radius: 8px;
+}
+.row { display: flex; justify-content: space-between; align-items: center; }
+.lbl { font-size: 13px; }
+.sw { position: relative; display: inline-block; width: 42px; height: 22px; }
+.sw input { opacity: 0; width: 0; height: 0; position: absolute; }
+.sl {
+  position: absolute; cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--swbg); border-radius: 22px;
+  transition: .3s;
+}
+.sl::before {
+  content: ''; position: absolute;
+  width: 16px; height: 16px; left: 3px; bottom: 3px;
+  background: #fff; border-radius: 50%;
+  transition: .3s;
+}
+input:checked + .sl { background: var(--swon); }
+input:checked + .sl::before { transform: translateX(20px); }
+.site {
+  padding: 8px 10px; background: var(--card);
+  border-radius: 8px; font-size: 11px;
+  color: var(--tx2); margin-bottom: 10px;
+  display: flex; gap: 4px; align-items: center;
+}
+.site .b { color: var(--txt); font-weight: 500; word-break: break-all; }
+footer { text-align: center; font-size: 10px; color: var(--tx2); }

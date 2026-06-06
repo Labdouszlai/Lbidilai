@@ -1,0 +1,50 @@
+{
+  "manifest_version": 2,
+  "name": "Lbidilai",
+  "version": "1.0.0",
+  "description": "راحة عينك من قلب النص. يصلح مشكلة الكتابة العربية مع الانجليزي في نفس السطر على ChatGPT و Instagram و Claude.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
+  },
+  "developer": {
+    "name": "l'abdouszlai"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "*://chatgpt.com/*",
+    "*://instagram.com/*",
+    "*://claude.ai/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://chatgpt.com/*",
+        "*://instagram.com/*",
+        "*://claude.ai/*"
+      ],
+      "js": ["content_scripts/fix-bidi.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Lbidilai - مصحح الكتابة",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "lbidilai@labdouszlai.dev",
+      "strict_min_version": "91.0"
+    }
+  }
+}
